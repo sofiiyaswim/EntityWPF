@@ -1,0 +1,58 @@
+﻿<Window x:Class="EntityWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EntityWPF"
+        mc:Ignorable="d"
+      Title="Информационная система" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="addButton" Margin="5, 5" Grid.Column="0" FontSize="22" VerticalContentAlignment="Center" Click="addButton_Click" >+</Button>
+            <Button Name="delButton" Margin="5,5" Grid.Column="1" FontSize="22" VerticalContentAlignment="Center" Click="delButton_Click">-</Button>
+
+            <ComboBox Name="dateStartCmb" Grid.Column="3" Margin="5,10"></ComboBox>
+            <ComboBox Name="dateSEndCmb" Grid.Column="5" Margin="5,10"></ComboBox>
+            <ComboBox Name="categoryCmb" Grid.Column="7" Margin="5,10"></ComboBox>
+
+            <TextBlock Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">с</TextBlock>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">по</TextBlock>
+            <TextBlock Grid.Column="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Категория:</TextBlock>
+
+            <Button Name="findButton" Margin="10,15" Grid.Column="8" FontSize="10" VerticalContentAlignment="Center" >Выбрать</Button>
+            <Button Name="clearButton" Margin="10,15" Grid.Column="9" FontSize="10" VerticalContentAlignment="Center" >Очистить</Button>
+            <Button Name="printButton" Margin="10,15" Grid.Column="10" FontSize="10" VerticalContentAlignment="Center" >Отчет</Button>
+
+        </Grid>
+
+        <DataGrid Name="dgTableTovar" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование платежа" Binding="{Binding description}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Binding="{Binding count}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding cena}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding price}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding date}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Категория" Binding="{Binding category.name_category}"></DataGridTextColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
